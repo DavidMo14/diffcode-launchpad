@@ -36,8 +36,8 @@ const footerLinks = [
   {
     title: "Legal",
     links: [
-      { name: "Términos", href: "#" },
-      { name: "Privacidad", href: "#" },
+      { name: "Términos", href: "#terminos" },
+      { name: "Privacidad", href: "#privacidad" },
     ],
   },
 ];
@@ -152,6 +152,34 @@ export function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 mb-12">
+          <div id="terminos" className="glass rounded-2xl p-6 border border-border">
+            <h4 className="font-display font-bold mb-3">Términos</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              DIFFCODE brinda servicios de consultoría, diseño y desarrollo de software a
+              medida. Los tiempos, alcance y entregables se detallan en cada propuesta y
+              contrato específico con el cliente.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              El uso de nuestros servicios implica la aceptación de los acuerdos de
+              confidencialidad, propiedad intelectual y facturación definidos para cada
+              proyecto. Para cualquier duda, escríbenos a contacto@diffcode.com.pe.
+            </p>
+          </div>
+          <div id="privacidad" className="glass rounded-2xl p-6 border border-border">
+            <h4 className="font-display font-bold mb-3">Privacidad</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              En DIFFCODE protegemos la información que compartes con nosotros. Solo
+              utilizamos tus datos para comunicarnos contigo, gestionar proyectos y
+              brindar soporte relacionado con nuestros servicios.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Implementamos buenas prácticas de seguridad para resguardar tus datos y no
+              los compartimos con terceros sin tu autorización, salvo requerimiento legal.
+            </p>
+          </div>
         </div>
 
         {/* Bottom Bar */}

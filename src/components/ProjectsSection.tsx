@@ -16,6 +16,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const buildWhatsAppDemoLink = (message: string) =>
   `https://wa.me/51946231973?text=${encodeURIComponent(message)}`;
 
+const whatsappDemoLink =
+  "https://wa.me/51946231973?text=Hola%20Diffcode%2C%20quiero%20solicitar%20una%20demo.";
+
 const projects = [
   {
     title: "CRM Empresarial",
@@ -46,36 +49,6 @@ const projects = [
     gradient: "from-emerald-500/20 to-teal-500/20",
     accentColor: "bg-emerald-500",
     demoMessage: "Hola Diffcode, quiero solicitar una demo del sistema de courier.",
-  },
-  {
-    title: "ERP Corporativo",
-    subtitle: "Gestión Integral Empresarial",
-    description:
-      "Sistema ERP para integrar finanzas, operaciones y recursos humanos en una sola plataforma con reportes en tiempo real.",
-    features: [
-      { icon: FileText, text: "Finanzas Centralizadas" },
-      { icon: Users, text: "Gestión de Talento" },
-      { icon: Package, text: "Inventario Unificado" },
-      { icon: CheckCircle2, text: "Reportes Ejecutivos" },
-    ],
-    gradient: "from-purple-500/20 to-indigo-500/20",
-    accentColor: "bg-purple-500",
-    demoMessage: "Hola Diffcode, quiero solicitar una demo del ERP corporativo.",
-  },
-  {
-    title: "Sistema de Almacén",
-    subtitle: "Control de Inventario",
-    description:
-      "Plataforma de almacén con trazabilidad, control de stock y alertas automáticas para optimizar la logística interna.",
-    features: [
-      { icon: MapPin, text: "Trazabilidad de Productos" },
-      { icon: Package, text: "Stock en Tiempo Real" },
-      { icon: Clock, text: "Alertas de Reposición" },
-      { icon: CheckCircle2, text: "Órdenes Sin Errores" },
-    ],
-    gradient: "from-amber-500/20 to-orange-500/20",
-    accentColor: "bg-amber-500",
-    demoMessage: "Hola Diffcode, quiero solicitar una demo del sistema de almacén.",
   },
 ];
 
@@ -155,29 +128,26 @@ export function ProjectsSection() {
                         ))}
                       </div>
 
-                      <Button
-                        asChild
-                        variant="ghost"
-                        className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
-                      >
-                        <a
-                          href={buildWhatsAppDemoLink(project.demoMessage)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Solicitar una demo
-                          <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="-left-6 md:-left-10" />
-          <CarouselNext className="-right-6 md:-right-10" />
-        </Carousel>
+                  {/* CTA */}
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
+                  >
+                    <a
+                      href={whatsappDemoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Solicitar una demo
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
