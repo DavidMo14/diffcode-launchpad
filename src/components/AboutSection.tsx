@@ -29,9 +29,6 @@ export function AboutSection() {
 
   return (
     <section id="nosotros" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-deep-blue/20 to-transparent" />
-      
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
@@ -97,7 +94,7 @@ export function AboutSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="glass rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-300 group"
+                  className="rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-300 group"
                 >
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
