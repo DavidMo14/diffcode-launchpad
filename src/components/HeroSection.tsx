@@ -154,6 +154,26 @@ export function HeroSection() {
                 </code>
               </motion.div>
 
+              <motion.div
+                className="absolute left-6 md:left-20 bottom-16 glass rounded-xl p-4 shadow-lg hidden sm:block"
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              >
+                <code className="text-xs md:text-sm font-mono text-primary">
+                  {"<"}code{" />"}
+                </code>
+              </motion.div>
+
+              <motion.div
+                className="absolute right-6 md:right-20 -bottom-6 glass rounded-xl p-4 shadow-lg hidden md:block"
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+              >
+                <code className="text-xs md:text-sm font-mono text-primary">
+                  {"const"} build = "ready"
+                </code>
+              </motion.div>
+
               {/* Central abstract element */}
               <div className="relative h-64 md:h-80 flex items-center justify-center">
                 <motion.div
@@ -167,11 +187,13 @@ export function HeroSection() {
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 />
                 <motion.div
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-primary/10 backdrop-blur-xl border border-primary/30 flex items-center justify-center animate-pulse-glow"
+                  className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl bg-primary/10 backdrop-blur-xl border border-primary/30 flex items-center justify-center animate-pulse-glow"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="text-3xl md:text-4xl font-display font-bold text-gradient">DC</span>
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gradient leading-none">
+                    {"</>"}
+                  </span>
                 </motion.div>
               </div>
             </div>

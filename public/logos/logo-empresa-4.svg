@@ -1,0 +1,6 @@
+<svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Empresa 4">
+  <rect width="240" height="120" rx="18" fill="#14273B"/>
+  <path d="M50 75 L70 45 L90 75 Z" fill="#19FFD0"/>
+  <path d="M60 78 L80 48 L100 78 Z" fill="#14CBB0"/>
+  <text x="120" y="68" font-family="Inter, Arial, sans-serif" font-size="22" fill="#F3F7FA" font-weight="600">Group</text>
+</svg>

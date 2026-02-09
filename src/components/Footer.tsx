@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Linkedin, Instagram, Facebook, Mail } from "lucide-react";
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/diffcode/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/diffcode_peru?igsh=MW1kdG13d2o5NXQxdQ==", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/share/17sHn5EeNy/?mibextid=wwXIfr", label: "Facebook" },
   { icon: Mail, href: "mailto:contacto@diffcode.com.pe", label: "Email" },
 ];
 
