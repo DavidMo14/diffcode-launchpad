@@ -29,6 +29,7 @@ const projects = [
     ],
     gradient: "from-blue-500/20 to-cyan-500/20",
     accentColor: "bg-blue-500",
+    demoMessage: "Hola Diffcode, quiero solicitar una demo del CRM empresarial.",
   },
   {
     title: "Sistema Logístico",
@@ -43,6 +44,7 @@ const projects = [
     ],
     gradient: "from-emerald-500/20 to-teal-500/20",
     accentColor: "bg-emerald-500",
+    demoMessage: "Hola Diffcode, quiero solicitar una demo del sistema de courier.",
   },
 ];
 
@@ -126,7 +128,7 @@ export function ProjectsSection() {
                   <Button
                     asChild
                     variant="ghost"
-                    className="group/btn hover:bg-primary/10 p-0 h-auto font-semibold"
+                    className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
                   >
                     <a
                       href={whatsappDemoLink}
