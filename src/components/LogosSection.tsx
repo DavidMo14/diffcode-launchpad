@@ -15,14 +15,14 @@ export function LogosSection() {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Aliados
+            Empresas aliadas
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Empresas que confían en{" "}
+            Marcas que confían en{" "}
             <span className="text-gradient">Diffcode</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Más que clientes, aliados estratégicos
+            Un carrusel continuo con los logos de nuestros clientes y aliados.
           </p>
         </div>
 

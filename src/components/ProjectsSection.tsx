@@ -16,6 +16,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const buildWhatsAppDemoLink = (message: string) =>
   `https://wa.me/51946231973?text=${encodeURIComponent(message)}`;
 
+const whatsappDemoLink =
+  "https://wa.me/51946231973?text=Hola%20Diffcode%2C%20quiero%20solicitar%20una%20demo.";
+
 const projects = [
   {
     title: "CRM Empresarial",
@@ -46,36 +49,6 @@ const projects = [
     gradient: "from-emerald-500/20 to-teal-500/20",
     accentColor: "bg-emerald-500",
     demoMessage: "Hola Diffcode, quiero solicitar una demo del sistema de courier.",
-  },
-  {
-    title: "ERP Corporativo",
-    subtitle: "Gestión Integral Empresarial",
-    description:
-      "Sistema ERP para integrar finanzas, operaciones y recursos humanos en una sola plataforma con reportes en tiempo real.",
-    features: [
-      { icon: FileText, text: "Finanzas Centralizadas" },
-      { icon: Users, text: "Gestión de Talento" },
-      { icon: Package, text: "Inventario Unificado" },
-      { icon: CheckCircle2, text: "Reportes Ejecutivos" },
-    ],
-    gradient: "from-purple-500/20 to-indigo-500/20",
-    accentColor: "bg-purple-500",
-    demoMessage: "Hola Diffcode, quiero solicitar una demo del ERP corporativo.",
-  },
-  {
-    title: "Sistema de Almacén",
-    subtitle: "Control de Inventario",
-    description:
-      "Plataforma de almacén con trazabilidad, control de stock y alertas automáticas para optimizar la logística interna.",
-    features: [
-      { icon: MapPin, text: "Trazabilidad de Productos" },
-      { icon: Package, text: "Stock en Tiempo Real" },
-      { icon: Clock, text: "Alertas de Reposición" },
-      { icon: CheckCircle2, text: "Órdenes Sin Errores" },
-    ],
-    gradient: "from-amber-500/20 to-orange-500/20",
-    accentColor: "bg-amber-500",
-    demoMessage: "Hola Diffcode, quiero solicitar una demo del sistema de almacén.",
   },
 ];
 
@@ -113,73 +86,68 @@ export function ProjectsSection() {
           className="relative"
         >
           <CarouselContent>
-            {projects.map((project, index) => {
-              return (
-                <CarouselItem
-                  key={project.title}
-                  className="md:basis-1/2"
+            {projects.map((project, index) => (
+              <CarouselItem
+                key={project.title}
+                className="md:basis-1/2"
+              >
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="group h-full"
                 >
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                    className="group h-full"
-                  >
-                    <div className={`relative h-full rounded-3xl p-8 md:p-10 overflow-hidden glass border border-border hover:border-primary/30 transition-all duration-500`}>
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50 group-hover:opacity-70 transition-opacity`} />
+                  <div className={`relative h-full rounded-3xl p-8 md:p-10 overflow-hidden glass border border-border hover:border-primary/30 transition-all duration-500`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50 group-hover:opacity-70 transition-opacity`} />
 
-                      <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-6">
-                          <div className={`w-3 h-3 rounded-full ${project.accentColor}`} />
-                          <span className="text-sm font-medium text-muted-foreground">
-                            {project.subtitle}
-                          </span>
-                        </div>
-
-                        <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h3>
-
-                        <p className="text-muted-foreground leading-relaxed mb-8">
-                          {project.description}
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-4 mb-8">
-                          {project.features.map((feature) => (
-                            <div
-                              key={feature.text}
-                              className="flex items-center gap-3 p-3 rounded-xl bg-background/50"
-                            >
-                              <feature.icon className="w-5 h-5 text-primary flex-shrink-0" />
-                              <span className="text-sm font-medium">{feature.text}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        <Button
-                          asChild
-                          variant="ghost"
-                          className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
-                        >
-                          <a
-                            href={buildWhatsAppDemoLink(project.demoMessage)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Solicitar una demo
-                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                          </a>
-                        </Button>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-2 mb-6">
+                        <div className={`w-3 h-3 rounded-full ${project.accentColor}`} />
+                        <span className="text-sm font-medium text-muted-foreground">
+                          {project.subtitle}
+                        </span>
                       </div>
-                    </div>
-                  </motion.div>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-          <CarouselPrevious className="-left-6 md:-left-10" />
-          <CarouselNext className="-right-6 md:-right-10" />
-        </Carousel>
+
+                      <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-muted-foreground leading-relaxed mb-8">
+                        {project.description}
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-4 mb-8">
+                        {project.features.map((feature) => (
+                          <div
+                            key={feature.text}
+                            className="flex items-center gap-3 p-3 rounded-xl bg-background/50"
+                          >
+                            <feature.icon className="w-5 h-5 text-primary flex-shrink-0" />
+                            <span className="text-sm font-medium">{feature.text}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                  {/* CTA */}
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
+                  >
+                    <a
+                      href={whatsappDemoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Solicitar una demo
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
