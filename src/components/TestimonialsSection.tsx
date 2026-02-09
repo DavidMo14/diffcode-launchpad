@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Quote, Star } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -29,33 +29,6 @@ const testimonials = [
     quote:
       "El equipo de DIFFCODE entendió perfectamente nuestras necesidades desde el primer día. El sistema que desarrollaron superó nuestras expectativas en calidad y tiempo de entrega.",
     image: "GG",
-    rating: 5,
-  },
-  {
-    name: "Patricia Rojas",
-    role: "Jefa de Operaciones",
-    company: "ERP Connect",
-    quote:
-      "El ERP de DIFFCODE nos permitió integrar finanzas, compras y RR.HH. en un solo sistema, reduciendo tiempos de cierre y mejorando la visibilidad.",
-    image: "PR",
-    rating: 5,
-  },
-  {
-    name: "Luis Herrera",
-    role: "Administrador de Almacén",
-    company: "Almacenes Andinos",
-    quote:
-      "Con el sistema de almacén controlamos stock en tiempo real y eliminamos pérdidas. La trazabilidad nos dio un salto enorme en eficiencia.",
-    image: "LH",
-    rating: 5,
-  },
-  {
-    name: "Carla Mendoza",
-    role: "Coordinadora Logística",
-    company: "Logística 360",
-    quote:
-      "La plataforma logística agilizó nuestras rutas y redujo costos. Ahora tenemos indicadores diarios para tomar decisiones rápidas.",
-    image: "CM",
     rating: 5,
   },
 ];
@@ -103,7 +76,6 @@ export function TestimonialsSection() {
 
         <Carousel
           opts={{ align: "start", loop: true }}
-          setApi={setCarouselApi}
           className="relative"
         >
           <CarouselContent>
