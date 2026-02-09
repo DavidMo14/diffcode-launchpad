@@ -75,7 +75,7 @@ export function StatsBar() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="glass rounded-3xl p-8 md:p-12"
+          className="rounded-3xl p-8 md:p-12 border border-border"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (

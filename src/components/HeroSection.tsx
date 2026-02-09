@@ -154,6 +154,26 @@ export function HeroSection() {
                 </code>
               </motion.div>
 
+              <motion.div
+                className="absolute left-2 sm:left-6 md:left-20 bottom-14 sm:bottom-16 glass rounded-xl p-3 sm:p-4 shadow-lg"
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              >
+                <code className="text-[10px] sm:text-xs md:text-sm font-mono text-primary">
+                  {"<"}code{" />"}
+                </code>
+              </motion.div>
+
+              <motion.div
+                className="absolute right-2 sm:right-6 md:right-20 -bottom-2 sm:-bottom-6 glass rounded-xl p-3 sm:p-4 shadow-lg"
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+              >
+                <code className="text-[10px] sm:text-xs md:text-sm font-mono text-primary">
+                  {"const"} build = "ready"
+                </code>
+              </motion.div>
+
               {/* Central abstract element */}
               <div className="relative h-64 md:h-80 flex items-center justify-center">
                 <motion.div
@@ -167,32 +187,21 @@ export function HeroSection() {
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 />
                 <motion.div
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-primary/10 backdrop-blur-xl border border-primary/30 flex items-center justify-center animate-pulse-glow"
+                  className="flex items-center justify-center animate-pulse-glow rounded-full"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="text-3xl md:text-4xl font-display font-bold text-gradient">DC</span>
+                  <img
+                    src="/favicon.ico"
+                    alt="Diffcode"
+                    className="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 object-contain"
+                  />
                 </motion.div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
-          <motion.div
-            className="w-1.5 h-1.5 rounded-full bg-primary"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }
