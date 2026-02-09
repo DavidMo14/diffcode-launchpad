@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
 import { Linkedin, Instagram, Facebook, Mail } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/diffcode/", label: "LinkedIn" },
@@ -79,12 +86,67 @@ export function Footer() {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
+                    {section.title === "Legal" ? (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <button
+                            type="button"
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {link.name}
+                          </button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>{link.name}</DialogTitle>
+                          </DialogHeader>
+                          {link.name === "Términos" ? (
+                            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                              <p>
+                                DIFFCODE brinda servicios de consultoría, diseño y desarrollo de
+                                software a medida. Los tiempos, alcance y entregables se detallan
+                                en cada propuesta y contrato específico con el cliente.
+                              </p>
+                              <p>
+                                El uso de nuestros servicios implica la aceptación de los acuerdos
+                                de confidencialidad, propiedad intelectual y facturación definidos
+                                para cada proyecto. Los pagos, cronogramas y garantías se establecen
+                                por escrito antes del inicio de cada implementación.
+                              </p>
+                              <p>
+                                Nos reservamos el derecho de actualizar estos términos para reflejar
+                                mejoras en nuestros procesos y servicios. Para cualquier duda,
+                                escríbenos a contacto@diffcode.com.pe.
+                              </p>
+                            </div>
+                          ) : (
+                            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                              <p>
+                                En DIFFCODE protegemos la información que compartes con nosotros.
+                                Utilizamos tus datos para comunicarnos contigo, gestionar proyectos
+                                y brindar soporte relacionado con nuestros servicios.
+                              </p>
+                              <p>
+                                Aplicamos buenas prácticas de seguridad para resguardar la
+                                información y no la compartimos con terceros sin autorización,
+                                salvo requerimiento legal o para cumplir obligaciones contractuales.
+                              </p>
+                              <p>
+                                Puedes solicitar la actualización o eliminación de tu información
+                                escribiendo a contacto@diffcode.com.pe.
+                              </p>
+                            </div>
+                          )}
+                        </DialogContent>
+                      </Dialog>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
