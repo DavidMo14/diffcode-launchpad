@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const buildWhatsAppDemoLink = (message: string) =>
-  `https://wa.me/51946231973?text=${encodeURIComponent(message)}`;
+const whatsappDemoLink =
+  "https://wa.me/51946231973?text=Hola%20Diffcode%2C%20quiero%20solicitar%20una%20demo.";
 
 const projects = [
   {
@@ -131,7 +131,7 @@ export function ProjectsSection() {
                     className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
                   >
                     <a
-                      href={buildWhatsAppDemoLink(project.demoMessage)}
+                      href={whatsappDemoLink}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
