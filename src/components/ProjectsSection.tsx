@@ -12,6 +12,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const buildWhatsAppDemoLink = (message: string) =>
+  `https://wa.me/51946231973?text=${encodeURIComponent(message)}`;
+
 const projects = [
   {
     title: "CRM Empresarial",
@@ -26,6 +29,7 @@ const projects = [
     ],
     gradient: "from-blue-500/20 to-cyan-500/20",
     accentColor: "bg-blue-500",
+    demoMessage: "Hola Diffcode, quiero solicitar una demo del CRM empresarial.",
   },
   {
     title: "Sistema Logístico",
@@ -40,6 +44,7 @@ const projects = [
     ],
     gradient: "from-emerald-500/20 to-teal-500/20",
     accentColor: "bg-emerald-500",
+    demoMessage: "Hola Diffcode, quiero solicitar una demo del sistema de courier.",
   },
 ];
 
@@ -121,11 +126,18 @@ export function ProjectsSection() {
 
                   {/* CTA */}
                   <Button
+                    asChild
                     variant="ghost"
-                    className="group/btn hover:bg-primary/10 p-0 h-auto font-semibold"
+                    className="group/btn h-auto rounded-full bg-primary/20 px-4 py-2 font-semibold text-primary hover:bg-primary/30"
                   >
-                    Ver más detalles
-                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    <a
+                      href={buildWhatsAppDemoLink(project.demoMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Solicitar una demo
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
                   </Button>
                 </div>
               </div>
