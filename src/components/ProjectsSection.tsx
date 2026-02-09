@@ -12,6 +12,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const whatsappDemoLink =
+  "https://wa.me/51946231973?text=Hola%20Diffcode%2C%20quiero%20solicitar%20una%20demo.";
+
 const projects = [
   {
     title: "CRM Empresarial",
@@ -121,11 +124,18 @@ export function ProjectsSection() {
 
                   {/* CTA */}
                   <Button
+                    asChild
                     variant="ghost"
                     className="group/btn hover:bg-primary/10 p-0 h-auto font-semibold"
                   >
-                    Ver más detalles
-                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    <a
+                      href={whatsappDemoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Solicitar una demo
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
                   </Button>
                 </div>
               </div>
