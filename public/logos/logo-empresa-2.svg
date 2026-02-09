@@ -1,0 +1,5 @@
+<svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Empresa 2">
+  <rect width="240" height="120" rx="18" fill="#12263A"/>
+  <rect x="32" y="38" width="44" height="44" rx="10" fill="#19FFD0"/>
+  <text x="100" y="68" font-family="Inter, Arial, sans-serif" font-size="22" fill="#F3F7FA" font-weight="600">Studio</text>
+</svg>
