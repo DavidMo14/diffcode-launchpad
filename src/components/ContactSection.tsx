@@ -1,13 +1,30 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Mail, Phone, MessageCircle, Send, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    toast.success("¡Mensaje enviado!", {
+      description: "Nos pondremos en contacto contigo pronto.",
+    });
+
+    setIsSubmitting(false);
+    (e.target as HTMLFormElement).reset();
+  };
 
   return (
     <section id="contacto" ref={ref} className="relative py-24 md:py-32">
@@ -48,19 +65,13 @@ export function ContactSection() {
                 Envíanos un mensaje
               </h3>
               
-              <form
-                action="mailto:contacto@diffcode.com.pe"
-                method="post"
-                encType="text/plain"
-                className="space-y-6"
-              >
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       Nombre
                     </label>
                     <Input
-                      name="nombre"
                       type="text"
                       placeholder="Tu nombre"
                       required
@@ -72,7 +83,6 @@ export function ContactSection() {
                       Email
                     </label>
                     <Input
-                      name="email"
                       type="email"
                       placeholder="tu@email.com"
                       required
@@ -86,7 +96,6 @@ export function ContactSection() {
                     Empresa (opcional)
                   </label>
                   <Input
-                    name="empresa"
                     type="text"
                     placeholder="Nombre de tu empresa"
                     className="bg-background/50 border-border focus:border-primary"
@@ -98,7 +107,6 @@ export function ContactSection() {
                     Descripción del Proyecto
                   </label>
                   <Textarea
-                    name="descripcion"
                     placeholder="Cuéntanos sobre tu proyecto..."
                     rows={5}
                     required
@@ -108,10 +116,17 @@ export function ContactSection() {
                 
                 <Button
                   type="submit"
+                  disabled={isSubmitting}
                   className="btn-cta rounded-full w-full py-6"
                 >
-                  Enviar Mensaje
-                  <Send className="ml-2 w-5 h-5" />
+                  {isSubmitting ? (
+                    "Enviando..."
+                  ) : (
+                    <>
+                      Enviar Mensaje
+                      <Send className="ml-2 w-5 h-5" />
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
