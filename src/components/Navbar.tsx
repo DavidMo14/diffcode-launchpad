@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
   { name: "Inicio", href: "#inicio" },
@@ -40,14 +39,12 @@ export function Navbar() {
             className="flex items-center gap-2"
             whileHover={{ scale: 1.02 }}
           >
-            <img
-              src="/brand/diffcode-logo.svg"
-              alt="Diffcode"
-              width={353}
-              height={90}
-              className="h-10 md:h-12 w-auto object-contain"
-              style={{ maxWidth: 353 }}
-            />
+            <div className="relative">
+              <span className="text-2xl font-display font-bold tracking-tight">
+                <span className="text-foreground">DIFF</span>
+                <span className="text-gradient">CODE</span>
+              </span>
+            </div>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -66,8 +63,7 @@ export function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+          <div className="hidden md:block">
             <Button
               asChild
               className="btn-cta rounded-full px-6"
@@ -105,17 +101,14 @@ export function Navbar() {
                     {link.name}
                   </a>
                 ))}
-                <div className="flex flex-col gap-3">
-                  <ThemeToggle />
-                  <Button
-                    asChild
-                    className="btn-cta rounded-full w-full mt-2"
-                  >
-                    <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
-                      Contáctanos
-                    </a>
-                  </Button>
-                </div>
+                <Button
+                  asChild
+                  className="btn-cta rounded-full w-full mt-2"
+                >
+                  <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
+                    Contáctanos
+                  </a>
+                </Button>
               </div>
             </motion.div>
           )}

@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
 import { Linkedin, Instagram, Facebook, Mail } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/diffcode/", label: "LinkedIn" },
@@ -36,8 +29,8 @@ const footerLinks = [
   {
     title: "Legal",
     links: [
-      { name: "Términos", href: "#terminos" },
-      { name: "Privacidad", href: "#privacidad" },
+      { name: "Términos", href: "#" },
+      { name: "Privacidad", href: "#" },
     ],
   },
 ];
@@ -66,8 +59,6 @@ export function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center hover:bg-primary/20 transition-colors"
@@ -86,100 +77,17 @@ export function Footer() {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    {section.title === "Legal" ? (
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <button
-                            type="button"
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                          >
-                            {link.name}
-                          </button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-2xl">
-                          <DialogHeader>
-                            <DialogTitle>{link.name}</DialogTitle>
-                          </DialogHeader>
-                          {link.name === "Términos" ? (
-                            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                              <p>
-                                DIFFCODE brinda servicios de consultoría, diseño y desarrollo de
-                                software a medida. Los tiempos, alcance y entregables se detallan
-                                en cada propuesta y contrato específico con el cliente.
-                              </p>
-                              <p>
-                                El uso de nuestros servicios implica la aceptación de los acuerdos
-                                de confidencialidad, propiedad intelectual y facturación definidos
-                                para cada proyecto. Los pagos, cronogramas y garantías se establecen
-                                por escrito antes del inicio de cada implementación.
-                              </p>
-                              <p>
-                                Nos reservamos el derecho de actualizar estos términos para reflejar
-                                mejoras en nuestros procesos y servicios. Para cualquier duda,
-                                escríbenos a contacto@diffcode.com.pe.
-                              </p>
-                            </div>
-                          ) : (
-                            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                              <p>
-                                En DIFFCODE protegemos la información que compartes con nosotros.
-                                Utilizamos tus datos para comunicarnos contigo, gestionar proyectos
-                                y brindar soporte relacionado con nuestros servicios.
-                              </p>
-                              <p>
-                                Aplicamos buenas prácticas de seguridad para resguardar la
-                                información y no la compartimos con terceros sin autorización,
-                                salvo requerimiento legal o para cumplir obligaciones contractuales.
-                              </p>
-                              <p>
-                                Puedes solicitar la actualización o eliminación de tu información
-                                escribiendo a contacto@diffcode.com.pe.
-                              </p>
-                            </div>
-                          )}
-                        </DialogContent>
-                      </Dialog>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link.name}
-                      </a>
-                    )}
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-2 mb-12">
-          <div id="terminos" className="glass rounded-2xl p-6 border border-border">
-            <h4 className="font-display font-bold mb-3">Términos</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-              DIFFCODE brinda servicios de consultoría, diseño y desarrollo de software a
-              medida. Los tiempos, alcance y entregables se detallan en cada propuesta y
-              contrato específico con el cliente.
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              El uso de nuestros servicios implica la aceptación de los acuerdos de
-              confidencialidad, propiedad intelectual y facturación definidos para cada
-              proyecto. Para cualquier duda, escríbenos a contacto@diffcode.com.pe.
-            </p>
-          </div>
-          <div id="privacidad" className="glass rounded-2xl p-6 border border-border">
-            <h4 className="font-display font-bold mb-3">Privacidad</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-              En DIFFCODE protegemos la información que compartes con nosotros. Solo
-              utilizamos tus datos para comunicarnos contigo, gestionar proyectos y
-              brindar soporte relacionado con nuestros servicios.
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Implementamos buenas prácticas de seguridad para resguardar tus datos y no
-              los compartimos con terceros sin tu autorización, salvo requerimiento legal.
-            </p>
-          </div>
         </div>
 
         {/* Bottom Bar */}
